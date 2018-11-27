@@ -1,0 +1,1 @@
+"C:\libs\LOVE\love.exe" "C:\Projetos\loveTest"
