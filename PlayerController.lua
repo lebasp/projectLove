@@ -1,6 +1,6 @@
 local playerController = {}
-local Player = require("Player")
-local PlayerView = require("PlayerView")
+local Player = require("Player.Player")
+local PlayerView = require("Player.PlayerView")
 
 local player = nil
 
@@ -14,6 +14,16 @@ function playerController.Load()
 end
 
 function playerController.Update(dt)
+
+	--phone
+	local touches = love.touch.getTouches()	
+	for i, id in ipairs(touches) do
+		local x, y = love.touch.getPosition(id)
+		playerController.CheckPlayerBorder(x, y)
+    end
+	
+
+	--computer
 	if love.keyboard.isDown("right") then
 		playerController.MovePlayer("right", dt)
 	end
